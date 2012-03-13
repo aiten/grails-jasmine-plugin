@@ -1,4 +1,7 @@
 class Jasmine::Config
+
+  attr_accessor :dynamic_spec_dir
+
   def project_root
     File.expand_path(File.join(File.dirname(__FILE__), ".."))
   end
@@ -9,6 +12,6 @@ class Jasmine::Config
   end  
   
   def spec_dir
-    File.join(project_root, 'test/jasmine/spec')
+     @dynamic_spec_dir
   end
 end

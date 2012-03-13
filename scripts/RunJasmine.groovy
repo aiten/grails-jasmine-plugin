@@ -12,21 +12,19 @@ where
 
 target(default: "Runs the jasmine server") {
   def c = new org.jruby.embed.ScriptingContainer()
-  //def jrubyHome = System.getenv("JRUBY_HOME")
-  //c.runScriptlet("ENV['GEM_PATH']='${jrubyHome}/lib/ruby/gems/1.8'")
 
   def script = """
                   require 'rubygems'
                   require 'jasmine'
 
-                  jasmine_config_overrides = 'PLUGIN_DIR/scripts/jasmine_config.rb'
+                  jasmine_config_overrides = '${jasminePluginDir}/scripts/jasmine_config.rb'
                   require jasmine_config_overrides if File.exist?(jasmine_config_overrides)
 
                   puts "Tests running at: http://localhost:8888/"
 
                   config = Jasmine::Config.new
+                  config.dynamic_spec_dir = File.join('${basedir}', 'test/jasmine/spec')
                   config.start_server
                """
-  script = script.replace("PLUGIN_DIR", "${jasminePluginDir}")
   c.runScriptlet(script)
 }
