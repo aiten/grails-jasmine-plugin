@@ -25,7 +25,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        runtime 'org.jruby:jruby-complete:1.6.4'
+        runtime 'org.jruby:jruby-complete:1.6.7'
 
         // runtime 'mysql:mysql-connector-java:5.1.5'
     }
