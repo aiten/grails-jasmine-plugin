@@ -14,7 +14,7 @@ class JasmineGrailsPlugin {
     def author = "nraychaudhuri, Antony Jones"
     def authorEmail = "aj: desirableobjects.co.uk"
     def title = "Jasmine Plugin"
-    def description = 'Runs Jasmine Tests'
+    def description = 'Test Runner for Jasmine: DOM-less simple JavaScript testing framework'
 
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/jasmine"
