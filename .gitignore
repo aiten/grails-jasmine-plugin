@@ -1,0 +1,9 @@
+*.iml
+*.ipr
+*.iws
+.project
+.idea
+.settings
+.classpath
+plugin.xml
+*.zip

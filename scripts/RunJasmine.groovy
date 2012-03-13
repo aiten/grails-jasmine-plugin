@@ -18,14 +18,14 @@ target(default: "Runs the jasmine server") {
   def script = """
                   require 'rubygems'
                   require 'jasmine-core'
+                  require 'jasmine'
+
                   jasmine_config_overrides = 'PLUGIN_DIR/scripts/jasmine_config.rb'
                   require jasmine_config_overrides if File.exist?(jasmine_config_overrides)
 
-                  puts "your tests are here:"
-                  puts "  http://localhost:8888/"
+                  puts "Tests running at: http://localhost:8888/"
 
                   config = Jasmine::Config.new
-                  puts config.methods
                   config.start_server
                """
   script = script.replace("PLUGIN_DIR", "${jasminePluginDir}")   
