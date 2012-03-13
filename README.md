@@ -9,7 +9,6 @@ How this works?
 ===============
 I am using JRuby to invoke jasmine ruby gem from the plugin. I know its crazy but it works :)
 
-
 How to Start?
 ===============
 * Install the grails plugin

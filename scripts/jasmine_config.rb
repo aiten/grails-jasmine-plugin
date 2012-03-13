@@ -9,6 +9,6 @@ class Jasmine::Config
   end  
   
   def spec_dir
-    File.join(project_root, 'test/javascripts/spec/javascripts')
+    File.join(project_root, 'test/jasmine/spec')
   end
 end

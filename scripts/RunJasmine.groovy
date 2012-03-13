@@ -17,7 +17,6 @@ target(default: "Runs the jasmine server") {
 
   def script = """
                   require 'rubygems'
-                  require 'jasmine-core'
                   require 'jasmine'
 
                   jasmine_config_overrides = 'PLUGIN_DIR/scripts/jasmine_config.rb'
@@ -28,6 +27,6 @@ target(default: "Runs the jasmine server") {
                   config = Jasmine::Config.new
                   config.start_server
                """
-  script = script.replace("PLUGIN_DIR", "${jasminePluginDir}")   
-  c.runScriptlet(script)             
+  script = script.replace("PLUGIN_DIR", "${jasminePluginDir}")
+  c.runScriptlet(script)
 }
