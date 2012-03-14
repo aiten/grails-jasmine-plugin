@@ -12,7 +12,6 @@ I am using JRuby to invoke jasmine ruby gem from the plugin. I know its crazy bu
 How to Start?
 ===============
 * Install the grails plugin
-* Before running the plugin make sure to set the JRUBY_HOME
 
 How to Upgrade Jasmine?
 =======================
