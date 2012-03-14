@@ -13,6 +13,12 @@ How to Start?
 ===============
 * Install the grails plugin
 
+How do I run the tests?
+=======================
+
+* Put your specs in the test/jasmine/spec folder
+* Run 'grails run-jasmine'
+
 How to Upgrade Jasmine?
 =======================
 * Simply download the plugin source from http://github.com/aiten/grails-jasmine and run:
