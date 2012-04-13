@@ -12,27 +12,29 @@ where
 
 target(default: "Run continuous integration tests") {
   def c = new org.jruby.embed.ScriptingContainer()
-  def jrubyHome = System.getenv("JRUBY_HOME")
-  c.runScriptlet("ENV['GEM_PATH']='${jrubyHome}/lib/ruby/gems/1.8'")
 
   def script = """
     require 'rubygems'
     require 'jasmine'
     require 'pp'
-    jasmine_config_overrides = 'PLUGIN_DIR/scripts/jasmine_config.rb'
+
+    jasmine_config_overrides = '${jasminePluginDir}/scripts/jasmine_config.rb'
     require jasmine_config_overrides if File.exist?(jasmine_config_overrides)
-    if Jasmine::rspec2?
+
+    if Jasmine::Dependencies::rspec2?
       require 'rspec'
     else
       require 'spec'
     end
 
     jasmine_config = Jasmine::Config.new
+    jasmine_config.dynamic_spec_dir = File.join('${basedir}', 'test/jasmine/spec')
+
     spec_builder = Jasmine::SpecBuilder.new(jasmine_config)
 
     should_stop = false
 
-    if Jasmine::rspec2?
+    if Jasmine::Dependencies::rspec2?
       RSpec.configuration.after(:suite) do
         spec_builder.stop if should_stop
       end
@@ -78,6 +80,6 @@ target(default: "Run continuous integration tests") {
     report(spec_builder)
     spec_builder.stop
   """
-  script = script.replace("PLUGIN_DIR", "${jasminePluginDir}")   
+
   c.runScriptlet(script)             
 }

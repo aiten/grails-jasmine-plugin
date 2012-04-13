@@ -7,8 +7,9 @@ class Jasmine::Config
   end
 
   def src_files
-    files = match_files(project_root, "/web-app/js/*.js")
-    files
+    filesSrc = match_files(project_root, "/web-app/js/*.js")
+    filesTest = match_files(project_root, "/test/**/*Helper.js")
+    filesSrc + filesTest
   end  
   
   def spec_dir
