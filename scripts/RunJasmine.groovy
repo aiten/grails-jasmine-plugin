@@ -1,5 +1,3 @@
-import org.jruby.embed.PathType
-
 includeTargets << grailsScript("_GrailsArgParsing")
 
 USAGE = """
@@ -23,7 +21,12 @@ target(default: "Runs the jasmine server") {
                   puts "Tests running at: http://localhost:8888/"
 
                   config = Jasmine::Config.new
-                  config.dynamic_spec_dir = File.join('${basedir}', 'test/jasmine/spec')
+                  config.dynamic_spec_dir = File.join('${basedir}', 'test/jasmine')
+                  config.project_root = File.join('${basedir}', '')
+
+                  puts ""
+                  puts "Spec's located in: " + config.spec_dir
+
                   config.start_server
                """
   c.runScriptlet(script)
